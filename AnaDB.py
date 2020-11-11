@@ -90,7 +90,6 @@ class AnaDatabase:
      x = (entry[self.findColumnIndex(tableName, arguments[0])])
      y = arguments[1]
      if not self.checkCondition(x, y, operator): add = False
-    if add == True: print(entry)
     
   if len(args) == 1:
    conditionsSplit = args[0].split("=")
