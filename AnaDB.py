@@ -83,7 +83,6 @@ class AnaDatabase:
     if self.checkCondition(x, y, operator): returnList.append(entry)
   else:
    for entry in tempEntries:
-    add = True
     for x in conditionsSplit:
      operator = self.getOperator(x)
      arguments = x.split(operator)
@@ -127,17 +126,17 @@ class AnaDatabase:
  def save(self):
   if not os.path.exists(str(self.name)):
    os.makedirs(str(self.name))
-  with open(str(self.name) + "\\" 'tables.ana', 'wb') as f:
+  with open(str(self.name) + "/" 'tables.ana', 'wb') as f:
    pickle.dump(self.tables, f)
-  with open(str(self.name) + "\\" 'columns.ana', 'wb') as f:
+  with open(str(self.name) + "/" 'columns.ana', 'wb') as f:
    pickle.dump(self.columns, f)
-  with open(str(self.name) + "\\" 'entries.ana', 'wb') as f:
+  with open(str(self.name) + "/" 'entries.ana', 'wb') as f:
    pickle.dump(self.entries, f)      
 
  def load(self):
-  with open(str(self.name) + "\\" 'tables.ana', 'rb') as f:
+  with open(str(self.name) + "/" 'tables.ana', 'rb') as f:
    self.tables = pickle.load(f) 
-  with open(str(self.name) + "\\" 'columns.ana', 'rb') as f:
+  with open(str(self.name) + "/" 'columns.ana', 'rb') as f:
    self.columns = pickle.load(f) 
-  with open(str(self.name) + "\\" 'entries.ana', 'rb') as f:
+  with open(str(self.name) + "/" 'entries.ana', 'rb') as f:
    self.entries = pickle.load(f)
